@@ -131,7 +131,7 @@ jobs:
     - name: Run "make generate" and check for changes
       run: |
         set -e
-        make generate 2>/dev/null
+        make generate
         if [[ $(git status --porcelain) ]]; then
           echo "Error: Uncommitted changes found after running 'make generate'. Please commit all generated code."
           git diff
