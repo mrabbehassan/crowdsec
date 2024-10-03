@@ -24,12 +24,12 @@ type NotifierPlugin struct {
 type GRPCClient struct{ client NotifierClient }
 
 func (m *GRPCClient) Notify(ctx context.Context, notification *Notification) (*Empty, error) {
-	_, err := m.client.Notify(ctx, notification)
+	_, err := m.client.Notify(context.Background(), notification)
 	return &Empty{}, err
 }
 
 func (m *GRPCClient) Configure(ctx context.Context, config *Config) (*Empty, error) {
-	_, err := m.client.Configure(ctx, config)
+	_, err := m.client.Configure(context.Background(), config)
 	return &Empty{}, err
 }
 
